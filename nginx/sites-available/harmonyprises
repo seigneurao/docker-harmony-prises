@@ -1,0 +1,12 @@
+server {
+        listen 8042;
+        server_name localhost 62.210.90.142 seedbox.seigneurao.com;
+
+        access_log      /var/log/nginx/harmonyprises_access.log;
+        error_log       /var/log/nginx/harmonyprises_error.log;
+
+        location / {
+                include uwsgi_params;
+                uwsgi_pass unix:/var/run/uwsgi/app/harmonyprises/socket;
+        }
+}
